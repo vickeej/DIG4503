@@ -1,9 +1,8 @@
 const Person = require("./Person.js");
 
 class Vickee extends Person {
-    constructor (name, favoriteColor, gender) {
+    constructor(name, favoriteColor) {
         super(name, favoriteColor);
-        this.gender = gender;
     }
 }
 
