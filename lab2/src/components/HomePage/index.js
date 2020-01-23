@@ -1,9 +1,13 @@
 import React from "react";
+import HomePageTitle from "./HomePageTitle";
 
 class HomePage extends React.Component {
     render() {
       return (
-        <p>{this.props.name}</p>
+        <div>
+          <HomePageTitle />
+          <p>{this.props.firstName}</p>
+        </div>
       );
     }
   }
