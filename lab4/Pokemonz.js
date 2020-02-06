@@ -28,6 +28,7 @@ class Pokemonz {
             } else {
                 console.log(chalk.green('Valid!'));
             }
+            return result;
         }
 
     }
