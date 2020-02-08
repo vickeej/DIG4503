@@ -1,20 +1,43 @@
 const Express = require("express");
 const App = Express();
+const Pokemon = require("json-pokemon");
+const chalk = require("chalk");
 const port = 80;
-const chalk = require('chalk');
 
-const Pokemonz = require('./Pokemonz.js');
-let pokemonz = new Pokemonz();
+App.get("/id/:id/", (req, res) => {
 
-App.get("/pokemons/name/#name", (req, res) => {
-    res.send(pokemonz.readName(req));
+    let result = "Invalid! ID does not exisit."; 
+
+    Pokemon.forEach((value) => {
+        if(value.id == req.params.id) {
+            result = value;
+            console.log(chalk.green(req.path));
+        }
+    });
+        
+        if(result == "Invalid! ID does not exisit.") {
+            console.log(chalk.red(req.path));
+        }
+        res.send(result);
 });
 
-App.get("/pokemons/id/#id", (req, res) => {
-    res.send(pokemonz.readID(req));
+App.get("/name/:name", (req, res) => {
+
+let result = "Invalid! Name does not exisit.";
+
+    Pokemon.forEach((value) => {
+        if(value.name == req.params.name) {
+            result = value;
+            console.log(chalk.green(req.path));
+        }
+    });
+    if(result == "Invalid! Name does not exisit.") {
+        console.log(chalk.red(req.path));
+    }
+    res.send(result);
 });
 
 
 App.listen(port, () => {
-    console.log("Server running!");
-});
+    console.log("Server Running!");
+})
