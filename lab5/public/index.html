@@ -2,7 +2,24 @@
     <body>
         <script>
             function clicker() {
-                console.log(fetch("/people/color/green"));
+
+                fetch("/people/person",
+                    {
+                        "method": 'POST',
+                        "headers": {
+                            "Content-Type": 'application/json'
+                        },
+                        "body": JSON.stringify({
+                            "example": "property"
+                        })
+                    } 
+                )
+                .then(function(response){
+                    return response.json();
+                })
+                .then(function(responseObject){
+                    console.log(responseObject);
+                });
             }
         </script>
         <div onClick="clicker()">Click me!</div>

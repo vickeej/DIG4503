@@ -4,8 +4,7 @@ const Pokemon = require("json-pokemon");
 const chalk = require("chalk");
 const port = 80;
 
-App.use(Express.static("public"));
-    console.log("Responds with files from public directory.");
+App.use("/", Express.static("public"));
 
 App.get("/id/:id/", (req, res) => {
 
