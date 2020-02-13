@@ -1,27 +1,66 @@
 <html>
     <body>
         <script>
-            function clicker() {
+            function read(event) {
 
-                fetch("/people/person",
-                    {
-                        "method": 'POST',
-                        "headers": {
-                            "Content-Type": 'application/json'
-                        },
-                        "body": JSON.stringify({
-                            "example": "property"
-                        })
-                    } 
-                )
-                .then(function(response){
-                    return response.json();
+                event.preventDefault();
+
+                let element = document.querySelector("#reader");
+
+                fetch("/api/" + element.value)
+                .then((res) => {
+                    return res.json();
                 })
-                .then(function(responseObject){
-                    console.log(responseObject);
+                .then((processed) => {
+                    
+                    let reporting = document.querySelector("#reportingArea");
+
+                    if(processed.error) {
+                        reporting.innerHTML = processed.error;
+                    } else {
+                        reporting.innerHTML = processed.number;
+                    }
+
+                });
+            }
+
+            function create(event) {
+
+                event.preventDefault();
+
+                let element = document.querySelector("#creator");
+
+                fetch("/api/" + element.value, {
+                    "method": "post"
+                })
+                .then((res) => {
+                    return res.json();
+                })
+                .then((processed) => {
+                    
+                    let reporting = document.querySelector("#reportingArea");
+
+                    if(processed.error) {
+                        reporting.innerHTML = processed.error;
+                    } else {
+                        reporting.innerHTML = processed.number;
+                    }
                 });
             }
         </script>
-        <div onClick="clicker()">Click me!</div>
+        <h2>Reader</h2>
+        <form onsubmit="read(event)">
+            <input id="reader" type="text">
+            <button>Submit</button>
+        </form>
+        <hr>
+        <h2>Creator</h2>
+        <form onsubmit="create(event)">
+            <input id="creator" type="text">
+            <button>Submit</button>
+        </form>
+        <hr>
+        <h2>Reporting</h2>
+        <div id="reportingArea"></div>
     </body>
 </html>
