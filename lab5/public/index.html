@@ -1,13 +1,13 @@
 <html>
     <body>
         <script>
-            function read(event) {
+            function readID(event) {
 
                 event.preventDefault();
 
-                let element = document.querySelector("#reader");
+                let element = document.querySelector("#id");
 
-                fetch("/api/" + element.value)
+                fetch("/id/" + element.value)
                 .then((res) => {
                     return res.json();
                 })
@@ -18,21 +18,18 @@
                     if(processed.error) {
                         reporting.innerHTML = processed.error;
                     } else {
-                        reporting.innerHTML = processed.number;
+                        reporting.innerHTML = processed.name;
                     }
 
                 });
             }
-
-            function create(event) {
+            function readName(event) {
 
                 event.preventDefault();
 
-                let element = document.querySelector("#creator");
+                let element = document.querySelector("#name");
 
-                fetch("/api/" + element.value, {
-                    "method": "post"
-                })
+                fetch("/name/" + element.value)
                 .then((res) => {
                     return res.json();
                 })
@@ -43,20 +40,43 @@
                     if(processed.error) {
                         reporting.innerHTML = processed.error;
                     } else {
-                        reporting.innerHTML = processed.number;
+                        reporting.innerHTML = processed.name;
                     }
+
                 });
+            }
+            function createPokemon(event) {
+
+                event.preventDefault();
+
+                let name = document.querySelector("#pokemonName");
+                let score = document.querySelector("#pokemonScore");
+
+                fetch("/" + name.value + "/" + id.value, {
+                    "method": "post"
+                }).then((res) => {
+                    return res.json();
+                }).then((processed) => {
+                    console.log(processed);
+                });
+
+
             }
         </script>
-        <h2>Reader</h2>
-        <form onsubmit="read(event)">
-            <input id="reader" type="text">
+        <h2>Score</h2>
+        <form onsubmit="readID(event)">
+            <input id="score" type="text">
+            <button>Submit</button>
+        </form>
+        <h2>Name</h2>
+        <form onsubmit="readName(event)">
+            <input id="name" type="text">
             <button>Submit</button>
         </form>
         <hr>
-        <h2>Creator</h2>
-        <form onsubmit="create(event)">
-            <input id="creator" type="text">
+        <form onsubmit="createPokemon(event)">
+            <input id="pokemonName" type="text">
+            <input id="pokemonScore" type="text">
             <button>Submit</button>
         </form>
         <hr>
