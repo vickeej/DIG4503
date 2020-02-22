@@ -7,7 +7,7 @@ const port = 80;
 const cors = require("cors");
 App.use(cors());
 
-App.get("/", Express.static("client/build"));
+App.use('/', Express.static("client/build"));
 
 App.get("/id/:id/", (req, res) => {
 

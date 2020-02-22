@@ -1,15 +1,19 @@
 import React from 'react';
-import './App.css';
+import IdSearch from './components/IdSearch';
+import NameSearch from './components/NameSearch';
 
-function App() {
-  return (
-    <div>
+
+class App extends React.Component {
+  render() {
+    return (
+      <div>
       <IdSearch />
       <NameSearch />
       <h2>Reporting</h2>
       <div id="reportingArea"></div>
     </div>
-  );
+    );
+  }
 }
 
 export default App;
