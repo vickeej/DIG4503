@@ -1,7 +1,7 @@
 import NameSearch from "../components/NameSearch";
 import IdSearch from "../components/IdSearch";
 
-const Home= ()=>{
+const Home = ()=>{
     return(
       <div>
         <NameSearch/>
