@@ -1,0 +1,32 @@
+body {
+    background-color: #000000;
+  }
+
+.container {
+    border: 2px solid #FFFFFF;
+    border-radius: 25px;
+  }
+
+.h1 {
+    font-family: 'Georgia, serif';
+    font-size: 24px;
+    color: #FF0000;
+    font-weight: bold;
+    text-decoration: none;
+    border-bottom: 5px solid #FFFFFF;
+}
+
+.link {
+    font-family: 'Georgia, serif';
+    font-size: 24px;
+    color: #3B4CCA;
+    text-decoration: none;
+}
+
+.result {
+    font-family: 'Impact, Charcoal, sans-serif';
+    font-size: 24px;
+    color: #FFDE00;
+    font-weight: bold;
+    text-decoration: none;
+}
