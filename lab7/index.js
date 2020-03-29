@@ -16,13 +16,6 @@ const Database = require("./Database.js");
 // (This will connect to the MongoDB system and save its internal objects.)
 let database = new Database();
 
-// Create a route
-// A route is a combination of method, path, and response
-// Method: GET
-// Path: /movies/title/:title
-// Response: 
-// - Either an "error" object OR 
-// - The movie object matching the search
 App.get("/movies/title/:title", (req, res) => {
 
     // Set an "error" result to send back first
@@ -46,6 +39,16 @@ App.get("/movies/title/:title", (req, res) => {
 });
 
 // TODO: Add a route /movies/year/:year
+App.get("/movies/year/:year", (req, res) => {
+    let result= {"error": "Cound not find movie with that release Year!"};
+
+    database.findYear(req.params.year).then((movie) =>{
+        if(movie != null){
+            result=movie;
+        }
+        res.json(result);
+    });
+});
 
 // Listen on 'port'
 App.listen(port, () => {
