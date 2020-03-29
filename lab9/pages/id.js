@@ -19,7 +19,7 @@ const ID = ()=>{
             </Link>
             <br/>
             <IdSearch/>
-            <div className = {styles.result} id = "reportingArea">
+            <div className = {styles.report} id = "reportingArea">
 
             </div>
         </div>
