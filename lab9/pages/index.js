@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import styles from '../components/Pagestyles/styles.module.css';
+import styles from '../components/PageStyles/styles.module.css';
 
 const Home = () => (
   <div className = {styles.container}>
