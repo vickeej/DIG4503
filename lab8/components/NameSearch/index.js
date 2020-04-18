@@ -5,7 +5,7 @@ class NameSearch extends React.Component {
         event.preventDefault();
             let pokeName = document.querySelector("#pokemonName");
 
-            fetch("http://localhost:3000/name/" + pokeName.value).then((res) =>{
+            fetch("/api/pokemon/name/" + pokeName.value).then((res) =>{
                 return res.json();
             }).then((processed) => {
                 let pokeReporting = document.querySelector("#reportingArea");
@@ -23,7 +23,7 @@ class NameSearch extends React.Component {
             <div>
                 <form onSubmit = {this.readName}>
                 <p>Enter Pokemon Name:</p>
-                <input id= "pokemonName" type="text" />
+                <input id = "pokemonName" type = "text" />
                 <button>Submit</button>
                 </form>
             </div>
