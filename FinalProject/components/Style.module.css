@@ -1,0 +1,61 @@
+.body {
+    background: #49a5d6;
+}
+
+.h1 {
+    text-align: center;
+    font-weight: bold;
+}
+
+.img {
+    display: block;
+    margin: auto;
+    width: 35%;
+}
+
+.container {
+    background: #000000;
+    color:#FFFFFF;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.5em;
+    width: 25%;
+    padding: 50px 30px 30px;
+    margin: auto;
+}
+    
+.name {
+    background-color:#CC0000;
+    text-align: center;
+    padding: 5px;
+}
+
+.id {
+    background-color:#3B4CCA;
+    text-align: center;
+    padding: 5px;
+}
+
+.type {
+    background-color:#B3A125;
+    text-align: center;
+    text-align: center;
+    padding: 5px;
+}
+
+.button {
+    background-image: url('../pages/img/pokeball.png');
+    background-color:#000000;
+    border: 10px;
+    width: 24px; 
+    height: 24px;
+    margin-left: 10px;
+    border-radius:35px;
+}
+
+.reportingArea {
+    background: #000000;
+    color:#FFFFFF;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1em;
+    padding: 25px;
+}
